@@ -1,13 +1,28 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.IO;
+using System.Net;
 
 namespace WHODataViz.GHOAccessLib
 {
     public class GHOAthenaAPIAccessor
     {
-        public IEnumerable<Fact> GetFacts(string url)
+        public Facts GetFacts(string url)
         {
-            return new ReadOnlyCollection<Fact>(new List<Fact>());
+            WebRequest request = WebRequest.Create(url);
+            using (WebResponse webResponse = request.GetResponse())
+            {
+                using (Stream dataStream = webResponse.GetResponseStream())
+                {
+                    if (dataStream == null)
+                    {
+                        return new Facts();
+                    }
+                    using (StreamReader reader = new StreamReader(dataStream))
+                    {
+                        string responseFromServer = reader.ReadToEnd();
+                        return JsonHelper.ToClass<Facts>(responseFromServer);
+                    }
+                }
+            }
         }
     }
 }
