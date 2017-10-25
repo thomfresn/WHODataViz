@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Diagnostics;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WHODataViz.GHOAccessLib;
@@ -26,6 +26,22 @@ namespace WHODataViz.GHOAccessLibUnitTests
 
             Facts facts = new GHOAthenaAPIAccessor().GetFacts(url);
             Assert.AreEqual(0, facts.fact.Count);
+        }
+
+        [TestMethod]
+        public void TestStuntedKidsCodeIsMDG_0000000027()
+        {
+            string url = @"http://apps.who.int/gho/athena/api/GHO.json";
+
+            const string expectedCode = "MDG_0000000027";
+            Codes codes = new GHOAthenaAPIAccessor().GetCodes(url);
+            Assert.IsNotNull(codes.dimension, "codes.dimension != null");
+            Dimension dimension = codes.dimension.SingleOrDefault();
+            Assert.IsNotNull(dimension);
+            Code code = dimension.code.FirstOrDefault(c => c.display == "Children aged <5 years stunted (%)");
+            Assert.IsNotNull(code);
+            string actualCode = code.label;
+            Assert.AreEqual(expectedCode, actualCode);
         }
 
     }

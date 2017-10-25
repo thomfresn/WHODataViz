@@ -24,5 +24,25 @@ namespace WHODataViz.GHOAccessLib
                 }
             }
         }
+
+        public Codes GetCodes(string url)
+        {
+            WebRequest request = WebRequest.Create(url);
+            using (WebResponse webResponse = request.GetResponse())
+            {
+                using (Stream dataStream = webResponse.GetResponseStream())
+                {
+                    if (dataStream == null)
+                    {
+                        return new Codes();
+                    }
+                    using (StreamReader reader = new StreamReader(dataStream))
+                    {
+                        string responseFromServer = reader.ReadToEnd();
+                        return JsonHelper.ToClass<Codes>(responseFromServer);
+                    }
+                }
+            }
+        }
     }
 }
