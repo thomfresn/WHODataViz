@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.GHOAccessLib", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.WPFView", "WHODataViz.WPFView\WHODataViz.WPFView.csproj", "{99E0F768-3936-4C87-86C9-ED975D7B5ADF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.GHOAccessLibUnitTests", "WHODataViz.GHOAccessLibUnitTests\WHODataViz.GHOAccessLibUnitTests.csproj", "{D4B2E466-7636-4153-BC2E-DBC9D7E2BADC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{99E0F768-3936-4C87-86C9-ED975D7B5ADF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99E0F768-3936-4C87-86C9-ED975D7B5ADF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99E0F768-3936-4C87-86C9-ED975D7B5ADF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4B2E466-7636-4153-BC2E-DBC9D7E2BADC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B2E466-7636-4153-BC2E-DBC9D7E2BADC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B2E466-7636-4153-BC2E-DBC9D7E2BADC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B2E466-7636-4153-BC2E-DBC9D7E2BADC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

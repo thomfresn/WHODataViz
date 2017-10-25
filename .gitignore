@@ -6,3 +6,6 @@
 /WHODataViz.WPF/WHODataViz.DataModel/obj/Debug
 /WHODataViz.WPF/WHODataViz.GHOAccessLib/obj/Debug
 /WHODataViz.WPF/WHODataViz.WPFView/obj/Debug
+/WHODataViz.WPF/packages
+bin
+obj
