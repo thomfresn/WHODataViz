@@ -9,3 +9,4 @@
 /WHODataViz.WPF/packages
 bin
 obj
+*.user

@@ -18,5 +18,15 @@ namespace WHODataViz.GHOAccessLibUnitTests
             string actualValue = facts.fact.First(f => f.dim.YEAR == "1994" && f.dim.COUNTRY == @"Lao People's Democratic Republic").Value;
             Assert.AreEqual(expectedValue, actualValue);
         }
+
+        [TestMethod]
+        public void TestEmptyFactsIsReturnedWhenUrlIsIncorrect()
+        {
+            string url = @"http://apps.who.int/gho/athena/api/GO/MD_0000000027.json?profile=simple";
+
+            Facts facts = new GHOAthenaAPIAccessor().GetFacts(url);
+            Assert.AreEqual(0, facts.fact.Count);
+        }
+
     }
 }
