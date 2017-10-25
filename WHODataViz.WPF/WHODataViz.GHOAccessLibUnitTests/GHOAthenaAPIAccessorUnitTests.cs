@@ -19,6 +19,17 @@ namespace WHODataViz.GHOAccessLibUnitTests
         }
 
         [TestMethod]
+        public void TestStuntedBoysInChileWas2_2In2008()
+        {
+            string url = @"http://apps.who.int/gho/athena/api/GHO/MDG_0000000027.json?profile=simple";
+
+            const string expectedValue = "2.2";
+            Facts facts = new GHOAthenaAPIAccessor().GetFacts(url);
+            string actualValue = facts.fact.First(f => f.dim.YEAR == "2008" && f.dim.COUNTRY == @"Chile" && f.dim.SEX == "Male").Value;
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestMethod]
         public void TestEmptyFactsIsReturnedWhenUrlIsIncorrect()
         {
             string url = @"http://apps.who.int/gho/athena/api/GO/MD_0000000027.json?profile=simple";
