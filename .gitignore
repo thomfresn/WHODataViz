@@ -3,3 +3,6 @@
 ################################################################################
 
 /WHODataViz.WPF/.vs/WHODataViz.WPF/v15
+/WHODataViz.WPF/WHODataViz.DataModel/obj/Debug
+/WHODataViz.WPF/WHODataViz.GHOAccessLib/obj/Debug
+/WHODataViz.WPF/WHODataViz.WPFView/obj/Debug
