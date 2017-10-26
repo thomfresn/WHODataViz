@@ -1,4 +1,6 @@
-﻿namespace WHODataViz.WPFView
+﻿using WHODataViz.DataModel;
+
+namespace WHODataViz.WPFView
 {
     public class IndicatorDesignTimeViewModel : IIndicatorViewModel
     {
@@ -13,9 +15,7 @@
         }
 
         public string DisplayName { get; private set; }
-    }
 
-    public interface IIndicatorViewModel
-    {
+        public Indicator Indicator => null;
     }
 }

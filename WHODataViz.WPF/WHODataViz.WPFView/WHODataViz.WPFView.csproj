@@ -63,9 +63,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IIndicatorViewModel.cs" />
     <Compile Include="IMainViewModel.cs" />
     <Compile Include="IndicatorDataRowViewModel.cs" />
     <Compile Include="IndicatorDesignTimeViewModel.cs" />
+    <Compile Include="IndicatorViewModel.cs" />
     <Compile Include="MainDesignTimeViewModel.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">

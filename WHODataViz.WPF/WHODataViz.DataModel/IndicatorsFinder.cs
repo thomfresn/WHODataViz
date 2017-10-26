@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using WHODataViz.GHOAccessLib;
 
@@ -13,26 +14,26 @@ namespace WHODataViz.DataModel
             GHOAthenaAPIAccessor athenaApiAccessor = new GHOAthenaAPIAccessor();
             Codes codes = athenaApiAccessor.GetCodes(url);
             Dimension dimension = codes.dimension.SingleOrDefault();
+            Debug.Assert(dimension != null, nameof(dimension) + " != null");
             foreach (var code in dimension.code)
             {
-                yield return new Indicator(code.label, code.display, code.url);
+                yield return new Indicator(code.label, code.display);
             }
         }
     }
 
     public class Indicator
     {
-        private string label;
+        private readonly string label;
         private readonly string display;
-        private string url;
 
-        public Indicator(string label, string display, string url)
+        public Indicator(string label, string display)
         {
             this.label = label;
             this.display = display;
-            this.url = url;
         }
 
         public string Description => display;
+        public string Code => label;
     }
 }
