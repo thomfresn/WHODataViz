@@ -42,7 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="IndicatorsFinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WHODataViz.GHOAccessLib\WHODataViz.GHOAccessLib.csproj">
+      <Project>{CAE6E44F-2483-497E-965E-5B10592D02BC}</Project>
+      <Name>WHODataViz.GHOAccessLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
