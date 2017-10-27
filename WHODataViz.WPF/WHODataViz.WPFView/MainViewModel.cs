@@ -17,7 +17,7 @@ namespace WHODataViz.WPFView
 
         public MainViewModel()
         {
-            AvailableIndicators = new ObservableCollection<IIndicatorViewModel>() {new IndicatorDesignTimeViewModel("Populating list")};
+            AvailableIndicators = new ObservableCollection<IIndicatorViewModel>() {new IndicatorDesignTimeViewModel("Populating list ...")};
             SelectedIndicator = AvailableIndicators.First();
             SelectIndicatorCommand = new RelayCommand<SelectionChangedEventArgs>(OnSelectionChangedAsync);
         }
