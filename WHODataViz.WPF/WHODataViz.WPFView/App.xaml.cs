@@ -12,7 +12,7 @@ namespace WHODataViz.WPFView
         {
             ILogger logger = new LoggerConfiguration()
                 .WriteTo.LiterateConsole()
-                .WriteTo.File("WHODataViz.log").CreateLogger();
+                .WriteTo.RollingFile(@"C:\Temp\logs\WHODataViz.log").CreateLogger();
             Log.Logger = logger;
 
         }
