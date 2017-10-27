@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Serilog;
+using System.Collections.Generic;
 using WHODataViz.DataModel;
 
 namespace WHODataViz.WPFView
@@ -15,10 +16,15 @@ namespace WHODataViz.WPFView
 
         private async void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
+            ILogger logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+            Log.Logger = logger;
             MainViewModel mainViewModel = new MainViewModel();
             DataContext = mainViewModel;
+            Log.Logger.Information("Loading indicators");
             IList<Indicator> indicators = await IndicatorsFinder.GetAllIndicatorsAsync();
+            Log.Logger.Information("Indicators loaded");
             mainViewModel.Initialize(indicators);
+            Log.Logger.Information("Application initialized");
         }
     }
 }
