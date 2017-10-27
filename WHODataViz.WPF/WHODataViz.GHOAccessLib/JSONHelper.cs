@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Newtonsoft.Json;
+using Serilog;
 
 namespace WHODataViz.GHOAccessLib
 {
@@ -18,8 +19,7 @@ namespace WHODataViz.GHOAccessLib
             }
             catch (JsonReaderException e)
             {
-                Debug.WriteLine(e.ToString());
-
+                Log.Logger.Error(e, "Failed to deserialize string {data} into object of type {Type}", data, typeof(T));
             }
 
             return response;
