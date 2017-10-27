@@ -18,11 +18,11 @@ namespace WHODataViz.WPFView
         {
             MainViewModel mainViewModel = new MainViewModel();
             DataContext = mainViewModel;
-            Log.Logger.Information("Loading indicators");
+            Log.Logger.Verbose("Loading indicators");
             IList<Indicator> indicators = await IndicatorsFinder.GetAllIndicatorsAsync();
-            Log.Logger.Information("Indicators loaded");
+            Log.Logger.Verbose("Indicators loaded");
             mainViewModel.Initialize(indicators);
-            Log.Logger.Information("Application initialized");
+            Log.Logger.Debug("Application initialized");
         }
     }
 }

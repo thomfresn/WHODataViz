@@ -1,6 +1,5 @@
-﻿
-using Raven.Client.Document;
-using Serilog;
+﻿using Serilog;
+using Serilog.Core;
 
 namespace WHODataViz.WPFView
 {
@@ -11,13 +10,7 @@ namespace WHODataViz.WPFView
     {
         private void Application_Startup(object sender, System.Windows.StartupEventArgs e)
         {
-            DocumentStore documentStore = new DocumentStore {Url = "http://localhost:8080", DefaultDatabase = "logs"};
-            documentStore.Initialize();
-
-            ILogger logger = new LoggerConfiguration()
-                .WriteTo.LiterateConsole()
-                .WriteTo.RavenDB(documentStore)
-                .WriteTo.RollingFile(@"C:\Temp\logs\WHODataViz.log").CreateLogger();
+            Logger logger = new LoggerConfiguration().ReadFrom.AppSettings().CreateLogger();
             Log.Logger = logger;
 
         }
