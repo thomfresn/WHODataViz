@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace WHODataViz.WPFView
 {
@@ -29,6 +30,11 @@ namespace WHODataViz.WPFView
 
         public ObservableCollection<IndicatorDataRowViewModel> IndicatorData { get; }
 
-        public IIndicatorViewModel SelectedIndicator { get; set; } 
+        public IIndicatorViewModel SelectedIndicator { get; set; }
+
+        public ICommand SelectIndicatorCommand
+        {
+            get { throw new System.NotImplementedException(); }
+        }
     }
 }

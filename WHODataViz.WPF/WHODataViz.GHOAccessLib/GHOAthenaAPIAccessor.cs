@@ -1,26 +1,28 @@
 ﻿using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace WHODataViz.GHOAccessLib
 {
     public class GHOAthenaAPIAccessor
     {
-        public Facts GetFacts(string code)
+        public async Task<Facts> GetFactsAsync(string code)
         {
             string url = $"http://apps.who.int/gho/athena/api/GHO/{code}.json?profile=simple";
-            return GetResponse<Facts>(url);
+            return await GetResponse<Facts>(url);
         }
         
-        public Codes GetCodes()
+        public async Task<Codes> GetCodesAsync()
         {
             string url = @"http://apps.who.int/gho/athena/api/GHO.json";
-            return GetResponse<Codes>(url);
+            return await GetResponse<Codes>(url);
         }
 
-        private T GetResponse<T>(string url) where T : new()
+        private async Task<T> GetResponse<T>(string url) where T : new()
         {
             WebRequest request = WebRequest.Create(url);
-            using (WebResponse webResponse = request.GetResponse())
+            WebResponse responseAsync = await request.GetResponseAsync();
+            using (WebResponse webResponse = responseAsync)
             {
                 using (Stream dataStream = webResponse.GetResponseStream())
                 {
@@ -30,7 +32,7 @@ namespace WHODataViz.GHOAccessLib
                     }
                     using (StreamReader reader = new StreamReader(dataStream))
                     {
-                        string responseFromServer = reader.ReadToEnd();
+                        string responseFromServer = await reader.ReadToEndAsync();
                         return JsonHelper.ToClass<T>(responseFromServer);
                     }
                 }

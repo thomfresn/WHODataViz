@@ -4,15 +4,28 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:wpfView="clr-namespace:WHODataViz.WPFView"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525"
-        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type wpfView:MainDesignTimeViewModel}}">
+        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type wpfView:MainDesignTimeViewModel}}" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
-        <ComboBox Grid.Row="0" ItemsSource="{Binding AvailableIndicators }" SelectedItem="{Binding SelectedIndicator, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="0" ItemsSource="{Binding AvailableIndicators }" SelectedItem="{Binding SelectedIndicator}">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <command:EventToCommand Command="{Binding Mode=OneWay, Path=SelectIndicatorCommand}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel />
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+        </ComboBox>
         <DataGrid Grid.Row="1" ItemsSource="{Binding IndicatorData}"></DataGrid>
     </Grid>
 </Window>

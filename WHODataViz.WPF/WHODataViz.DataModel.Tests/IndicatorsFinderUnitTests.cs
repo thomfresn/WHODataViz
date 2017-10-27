@@ -9,7 +9,8 @@ namespace WHODataViz.DataModel.Tests
         [TestMethod]
         public void TestCodeForComplaintsAndSanctionsExists()
         {
-            Assert.IsNotNull(IndicatorsFinder.GetAllIndicators().First(x=>x.Description == "Up to date list of complaints and sanctions publicly available"));
+            var allIndicators = IndicatorsFinder.GetAllIndicatorsAsync().Result;
+            Assert.IsNotNull(allIndicators.First(x=>x.Description == "Up to date list of complaints and sanctions publicly available"));
         }
 
     }
