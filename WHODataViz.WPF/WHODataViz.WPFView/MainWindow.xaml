@@ -7,12 +7,12 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d"
-        Title="MainWindow"
-        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type wpfView:MainDesignTimeViewModel}}" Loaded="Window_Loaded">
+        Title="WHO statistics vizualizer"
+        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type wpfView:MainDesignTimeViewModel}}" Loaded="Window_Loaded" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="9*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="95*"/>
         </Grid.RowDefinitions>
         <ComboBox Grid.Row="0" ItemsSource="{Binding AvailableIndicators }" SelectedItem="{Binding SelectedIndicator}">
             <i:Interaction.Triggers>
