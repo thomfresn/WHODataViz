@@ -72,7 +72,7 @@ namespace WHODataViz.WPFView
             set
             {
                 selectedIndicatorData = value;
-                Log.Logger.Information("Selected indicator data {Country} : {Value}", selectedIndicatorData?.Country, selectedIndicatorData?.Value);
+                Log.Logger.Information("Selected indicator data {@IndicatorData}", selectedIndicatorData);
             }
         }
     }
