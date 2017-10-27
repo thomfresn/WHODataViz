@@ -32,6 +32,8 @@ namespace WHODataViz.WPFView
 
         public IIndicatorViewModel SelectedIndicator { get; set; }
 
+        public IndicatorDataRowViewModel SelectedIndicatorData { get; set; }
+
         public ICommand SelectIndicatorCommand
         {
             get { throw new System.NotImplementedException(); }

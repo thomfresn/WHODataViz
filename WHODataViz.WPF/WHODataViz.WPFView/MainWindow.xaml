@@ -26,6 +26,8 @@
                 </ItemsPanelTemplate>
             </ComboBox.ItemsPanel>
         </ComboBox>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding IndicatorData}"></DataGrid>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding IndicatorData}" SelectedItem="{Binding SelectedIndicatorData}">
+            
+        </DataGrid>
     </Grid>
 </Window>

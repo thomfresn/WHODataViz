@@ -8,12 +8,14 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
 using WHODataViz.DataModel;
+using Serilog;
 
 namespace WHODataViz.WPFView
 {
     public class MainViewModel : ViewModelBase, IMainViewModel
     {
         private IIndicatorViewModel selectedIndicator;
+        private IndicatorDataRowViewModel selectedIndicatorData;
 
         public MainViewModel()
         {
@@ -63,5 +65,15 @@ namespace WHODataViz.WPFView
         }
 
         public ICommand SelectIndicatorCommand { get; }
+
+        public IndicatorDataRowViewModel SelectedIndicatorData
+        {
+            get => selectedIndicatorData;
+            set
+            {
+                selectedIndicatorData = value;
+                Log.Logger.Information("Selected indicator data {Country} : {Value}", selectedIndicatorData?.Country, selectedIndicatorData?.Value);
+            }
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace WHODataViz.WPFView
         ObservableCollection<IndicatorDataRowViewModel> IndicatorData { get; }
         IIndicatorViewModel SelectedIndicator { get; set; }
         ICommand SelectIndicatorCommand { get; }
+        IndicatorDataRowViewModel SelectedIndicatorData { get; set; }
     }
 }
