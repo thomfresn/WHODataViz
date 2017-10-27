@@ -16,8 +16,6 @@ namespace WHODataViz.WPFView
 
         private async void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            ILogger logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
-            Log.Logger = logger;
             MainViewModel mainViewModel = new MainViewModel();
             DataContext = mainViewModel;
             Log.Logger.Information("Loading indicators");
