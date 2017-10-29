@@ -16,12 +16,10 @@ namespace WHODataViz.WPFView.View
 
         private async void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            MainViewModel mainViewModel = new MainViewModel();
-            DataContext = mainViewModel;
             Log.Logger.Verbose("Loading indicators");
             IList<Indicator> indicators = await IndicatorsFinder.GetAllIndicatorsAsync();
             Log.Logger.Verbose("Indicators loaded");
-            mainViewModel.Initialize(indicators);
+            (DataContext as MainViewModel).Initialize(indicators);
             Log.Logger.Debug("Application initialized");
         }
     }

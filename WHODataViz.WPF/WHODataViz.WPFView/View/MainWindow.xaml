@@ -8,7 +8,8 @@
         xmlns:design="clr-namespace:WHODataViz.WPFView.ViewModel.Design"
         mc:Ignorable="d"
         Title="WHO statistics vizualizer"
-        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type design:MainDesignTimeViewModel}}" Loaded="Window_Loaded" WindowState="Maximized">
+        d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True, Type={x:Type design:MainDesignTimeViewModel}}" Loaded="Window_Loaded" WindowState="Maximized"
+        DataContext="{Binding Main, Source={StaticResource Locator}}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
