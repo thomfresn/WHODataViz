@@ -11,6 +11,7 @@ using WHODataViz.DataModel;
 using Serilog;
 using WHODataViz.WPFView.ViewModel;
 using WHODataViz.WPFView.ViewModel.Design;
+using Microsoft.Practices.ServiceLocation;
 
 namespace WHODataViz.WPFView
 {
@@ -70,7 +71,7 @@ namespace WHODataViz.WPFView
             set
             {
                 selectedIndicatorData = value;
-                Log.Logger.Information("Selected indicator data {@IndicatorData}", selectedIndicatorData);
+                ServiceLocator.Current.GetInstance<ILogger>().Information("Selected indicator data {@IndicatorData}", selectedIndicatorData);
             }
         }
     }

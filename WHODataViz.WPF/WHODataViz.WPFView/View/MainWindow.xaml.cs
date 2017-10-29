@@ -1,5 +1,6 @@
 ﻿using Serilog;
 using System.Collections.Generic;
+using Microsoft.Practices.ServiceLocation;
 using WHODataViz.DataModel;
 
 namespace WHODataViz.WPFView.View
@@ -16,11 +17,11 @@ namespace WHODataViz.WPFView.View
 
         private async void Window_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            Log.Logger.Verbose("Loading indicators");
+            ServiceLocator.Current.GetInstance<ILogger>().Verbose("Loading indicators");
             IList<Indicator> indicators = await IndicatorsFinder.GetAllIndicatorsAsync();
-            Log.Logger.Verbose("Indicators loaded");
+            ServiceLocator.Current.GetInstance<ILogger>().Verbose("Indicators loaded");
             (DataContext as MainViewModel).Initialize(indicators);
-            Log.Logger.Debug("Application initialized");
+            ServiceLocator.Current.GetInstance<ILogger>().Debug("Application initialized");
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Practices.ServiceLocation;
+using Newtonsoft.Json;
 using Serilog;
 
 namespace WHODataViz.GHOAccessLib
@@ -18,7 +19,7 @@ namespace WHODataViz.GHOAccessLib
             }
             catch (JsonReaderException e)
             {
-                Log.Logger.Error(e, "Failed to deserialize string {data} into object of type {Type}", data, typeof(T));
+                ServiceLocator.Current.GetInstance<ILogger>().Error(e, "Failed to deserialize string {data} into object of type {Type}", data, typeof(T));
             }
 
             return response;
