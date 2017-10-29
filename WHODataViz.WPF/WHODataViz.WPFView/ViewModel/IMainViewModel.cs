@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 
-namespace WHODataViz.WPFView
+namespace WHODataViz.WPFView.ViewModel
 {
     public interface IMainViewModel
     {

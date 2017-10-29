@@ -1,6 +1,6 @@
 ﻿using WHODataViz.DataModel;
 
-namespace WHODataViz.WPFView
+namespace WHODataViz.WPFView.ViewModel.Design
 {
     public class IndicatorDesignTimeViewModel : IIndicatorViewModel
     {

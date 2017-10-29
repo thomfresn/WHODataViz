@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using WHODataViz.DataModel;
 
-namespace WHODataViz.WPFView
+namespace WHODataViz.WPFView.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

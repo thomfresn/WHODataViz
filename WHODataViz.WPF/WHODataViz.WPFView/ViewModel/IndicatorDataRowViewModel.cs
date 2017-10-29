@@ -1,4 +1,4 @@
-﻿namespace WHODataViz.WPFView
+﻿namespace WHODataViz.WPFView.ViewModel
 {
     public class IndicatorDataRowViewModel
     {
