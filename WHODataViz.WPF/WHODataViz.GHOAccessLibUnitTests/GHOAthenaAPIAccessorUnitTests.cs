@@ -1,5 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
+using GalaSoft.MvvmLight.Ioc;
+using Microsoft.Practices.ServiceLocation;
+using Serilog;
+using Serilog.Core;
 using WHODataViz.GHOAccessLib;
 
 namespace WHODataViz.GHOAccessLibUnitTests
@@ -7,6 +11,27 @@ namespace WHODataViz.GHOAccessLibUnitTests
     [TestClass]
     public class GHOAthenaAPIAccessorUnitTests
     {
+        [TestInitialize]
+        public void TestInitialize()
+        {
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default); 
+            SimpleIoc.Default.Register(CreateLogger);
+        }
+
+        [TestCleanup]
+        public void TestCleanup()
+        {
+            SimpleIoc.Default.Unregister<ILogger>();
+        }
+
+        private ILogger CreateLogger()
+        {
+            //Load configure for Serilog logger (https://github.com/serilog/serilog)
+            Logger logger = new LoggerConfiguration().WriteTo.Debug().CreateLogger();
+            Log.Logger = logger;
+            return Log.Logger;
+        }
+
         [TestMethod]
         public void TestStuntedKidsInLaosWas52_9In1994()
         {
