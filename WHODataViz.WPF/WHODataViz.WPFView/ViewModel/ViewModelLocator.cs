@@ -1,5 +1,5 @@
 
-using GalaSoft.MvvmLight;
+using WHODataViz.DataModel;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 using Serilog;
@@ -33,6 +33,7 @@ namespace WHODataViz.WPFView.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register(() => CreateLogger());
+            SimpleIoc.Default.Register<IIndicatorsService, IndicatorsFinder>();
         }
 
         private ILogger CreateLogger()
@@ -53,7 +54,6 @@ namespace WHODataViz.WPFView.ViewModel
         
         public static void Cleanup()
         {
-            // TODO Clear the ViewModels
         }
     }
 }

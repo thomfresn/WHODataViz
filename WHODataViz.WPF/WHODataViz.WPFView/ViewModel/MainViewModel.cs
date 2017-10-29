@@ -12,6 +12,7 @@ using Serilog;
 using WHODataViz.WPFView.ViewModel;
 using WHODataViz.WPFView.ViewModel.Design;
 using Microsoft.Practices.ServiceLocation;
+using GalaSoft.MvvmLight.Threading;
 
 namespace WHODataViz.WPFView
 {
@@ -19,16 +20,22 @@ namespace WHODataViz.WPFView
     {
         private IIndicatorViewModel selectedIndicator;
         private IndicatorDataRowViewModel selectedIndicatorData;
+        private IIndicatorsService indicatorsService;
 
-        public MainViewModel()
+        public MainViewModel(IIndicatorsService indicatorsService)
         {
             AvailableIndicators = new ObservableCollection<IIndicatorViewModel>() {new IndicatorDesignTimeViewModel("Populating list ...")};
             SelectedIndicator = AvailableIndicators.First();
             SelectIndicatorCommand = new RelayCommand<SelectionChangedEventArgs>(OnSelectionChangedAsync);
+
+            ServiceLocator.Current.GetInstance<ILogger>().Verbose("Loading indicators");
+            this.indicatorsService = indicatorsService;
+            indicatorsService.GetAllIndicatorsAsync().ContinueWith(task => DispatcherHelper.CheckBeginInvokeOnUI(() => Initialize(task.Result)));
         }
 
         public void Initialize(IEnumerable<Indicator> indicators)
         {
+            ServiceLocator.Current.GetInstance<ILogger>().Verbose("Indicators loaded");
             AvailableIndicators.Clear();
             foreach (Indicator indicator in indicators)
             {
@@ -36,6 +43,7 @@ namespace WHODataViz.WPFView
             }
 
             SelectedIndicator = AvailableIndicators.FirstOrDefault();
+            ServiceLocator.Current.GetInstance<ILogger>().Debug("Application initialized");
         }
 
         private async void OnSelectionChangedAsync(SelectionChangedEventArgs eventArgs)

@@ -6,9 +6,9 @@ using WHODataViz.GHOAccessLib;
 
 namespace WHODataViz.DataModel
 {
-    public static class IndicatorsFinder
+    public class IndicatorsFinder : IIndicatorsService
     {
-        public static async Task<IList<Indicator>> GetAllIndicatorsAsync()
+        public async Task<IList<Indicator>> GetAllIndicatorsAsync()
         {
             List<Indicator> indicators = new List<Indicator>();
             GHOAthenaAPIAccessor athenaApiAccessor = new GHOAthenaAPIAccessor();
@@ -21,5 +21,10 @@ namespace WHODataViz.DataModel
             }
             return indicators;
         }
+    }
+
+    public interface IIndicatorsService
+    {
+        Task<IList<Indicator>> GetAllIndicatorsAsync();
     }
 }
