@@ -59,11 +59,7 @@ namespace WHODataViz.WPFView
         public IIndicatorViewModel SelectedIndicator
         {
             get => selectedIndicator;
-            set
-            {
-                selectedIndicator = value;
-                RaisePropertyChanged();
-            }
+            set { Set(() => SelectedIndicator, ref selectedIndicator, value); }
         }
 
         public ICommand SelectIndicatorCommand { get; }
