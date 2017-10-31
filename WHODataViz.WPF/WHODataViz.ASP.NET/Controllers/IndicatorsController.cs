@@ -14,5 +14,13 @@ namespace WHODataViz.ASP.NET.Controllers
             IList<Indicator> indicators = await indicatorsFinder.GetAllIndicatorsAsync();
             return View(indicators);
         }
+
+        public async Task<ActionResult> IndicatorData(string code)
+        {
+            IList<WHOStatistics> whoStatistics = await IndicatorDataFetcher.GetWHOStatistics(code);
+            return View(whoStatistics);
+        }
+
+
     }
 }
