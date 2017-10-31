@@ -11,3 +11,4 @@ bin
 obj
 *.user
 /WHODataViz.WPF/.vs/config
+/WHODataViz.WPF/.vs/WHODataViz/v15

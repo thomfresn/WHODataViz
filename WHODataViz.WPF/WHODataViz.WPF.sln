@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.GHOAccessLib.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.DataModel.Tests", "WHODataViz.DataModel.Tests\WHODataViz.DataModel.Tests.csproj", "{78CA6FA5-0D69-427D-BBEE-629F3CB1F196}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.ASP.NET", "WHODataViz.ASP.NET\WHODataViz.ASP.NET.csproj", "{FE576212-B09D-4BCF-B1F4-9E0D441A679D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WHODataViz.ASP.NET.Tests", "WHODataViz.ASP.NET.Tests\WHODataViz.ASP.NET.Tests.csproj", "{E1B3F039-DA69-4569-831D-41676D894622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{78CA6FA5-0D69-427D-BBEE-629F3CB1F196}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78CA6FA5-0D69-427D-BBEE-629F3CB1F196}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78CA6FA5-0D69-427D-BBEE-629F3CB1F196}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE576212-B09D-4BCF-B1F4-9E0D441A679D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE576212-B09D-4BCF-B1F4-9E0D441A679D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE576212-B09D-4BCF-B1F4-9E0D441A679D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE576212-B09D-4BCF-B1F4-9E0D441A679D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B3F039-DA69-4569-831D-41676D894622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B3F039-DA69-4569-831D-41676D894622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B3F039-DA69-4569-831D-41676D894622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B3F039-DA69-4569-831D-41676D894622}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
