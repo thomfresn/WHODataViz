@@ -9,7 +9,8 @@ namespace WHODataViz.DataModel.Tests
         [TestMethod]
         public void TestCodeForComplaintsAndSanctionsExists()
         {
-            var allIndicators = IndicatorsFinder.GetAllIndicatorsAsync().Result;
+            IndicatorsFinder indicatorsFinder = new IndicatorsFinder();
+            var allIndicators = indicatorsFinder.GetAllIndicatorsAsync().Result;
             Assert.IsNotNull(allIndicators.First(x=>x.Description == "Up to date list of complaints and sanctions publicly available"));
         }
 
