@@ -5,9 +5,9 @@ using WHODataViz.GHOAccessLib;
 
 namespace WHODataViz.DataModel
 {
-    public static class IndicatorDataFetcher
+    public class IndicatorDataFetcher : IIndicatorDataFetcher
     {
-        public static async Task<IList<WHOStatistics>> GetWHOStatistics(string code)
+        public async Task<IList<WHOStatistics>> GetWHOStatistics(string code)
         {
             List<WHOStatistics> statistics = new List<WHOStatistics>();
             GHOAthenaAPIAccessor athenaApiAccessor = new GHOAthenaAPIAccessor();
@@ -21,5 +21,10 @@ namespace WHODataViz.DataModel
             }
             return statistics;
         }
+    }
+
+    public interface IIndicatorDataFetcher
+    {
+        Task<IList<WHOStatistics>> GetWHOStatistics(string code);
     }
 }

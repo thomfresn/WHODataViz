@@ -12,7 +12,7 @@ namespace WHODataViz.ASP.NET
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Indicators", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

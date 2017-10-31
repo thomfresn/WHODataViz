@@ -11,7 +11,8 @@ namespace WHODataViz.DataModel.Tests
         public void TestStatisticsAreReturnedForStuntedKidsInSolomonIslands()
         {
             string code = "MDG_0000000027";
-            IList<WHOStatistics> statistics = IndicatorDataFetcher.GetWHOStatistics(code).Result;
+            IndicatorDataFetcher indicatorDataFetcher = new IndicatorDataFetcher();
+            IList<WHOStatistics> statistics = indicatorDataFetcher.GetWHOStatistics(code).Result;
             Assert.IsTrue(statistics.Any(s => s.Country == "Solomon Islands"));
         }
     }

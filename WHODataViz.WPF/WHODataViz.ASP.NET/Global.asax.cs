@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using WHODataViz.ASP.NET.Infrastructure;
 
 namespace WHODataViz.ASP.NET
 {
@@ -12,6 +13,7 @@ namespace WHODataViz.ASP.NET
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ControllerBuilder.Current.SetControllerFactory(new ControllerFactory());
         }
     }
 }

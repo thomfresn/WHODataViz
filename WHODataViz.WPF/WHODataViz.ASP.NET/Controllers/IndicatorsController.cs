@@ -7,17 +7,25 @@ namespace WHODataViz.ASP.NET.Controllers
 {
     public class IndicatorsController : Controller
     {
+        private readonly IIndicatorsService indicatorsService;
+        private readonly IIndicatorDataFetcher indicatorDataFetcher;
+
+        public IndicatorsController(IIndicatorsService indicatorsService, IIndicatorDataFetcher indicatorDataFetcher)
+        {
+            this.indicatorsService = indicatorsService;
+            this.indicatorDataFetcher = indicatorDataFetcher;
+        }
+
         // GET: Indicators
         public async Task<ActionResult> Index()
         {
-            IndicatorsFinder indicatorsFinder = new IndicatorsFinder();
-            IList<Indicator> indicators = await indicatorsFinder.GetAllIndicatorsAsync();
+            IList<Indicator> indicators = await indicatorsService.GetAllIndicatorsAsync();
             return View(indicators);
         }
 
         public async Task<ActionResult> IndicatorData(string code)
         {
-            IList<WHOStatistics> whoStatistics = await IndicatorDataFetcher.GetWHOStatistics(code);
+            IList<WHOStatistics> whoStatistics = await indicatorDataFetcher.GetWHOStatistics(code);
             return View(whoStatistics);
         }
 

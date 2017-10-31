@@ -54,7 +54,8 @@ namespace WHODataViz.WPFView
                 SelectedIndicator = addedItems.OfType<IIndicatorViewModel>().FirstOrDefault();
                 IndicatorData.Clear();
                 Debug.Assert(SelectedIndicator != null, nameof(SelectedIndicator) + " != null");
-                foreach (WHOStatistics statistics in await IndicatorDataFetcher.GetWHOStatistics(SelectedIndicator.Indicator.Code))
+                IndicatorDataFetcher indicatorDataFetcher = new IndicatorDataFetcher();
+                foreach (WHOStatistics statistics in await indicatorDataFetcher.GetWHOStatistics(SelectedIndicator.Indicator.Code))
                 {
                     IndicatorData.Add(new IndicatorDataRowViewModel(statistics.Value, statistics.Year, statistics.Sex, statistics.Country, statistics.Region, statistics.IsPublished));
                 }
