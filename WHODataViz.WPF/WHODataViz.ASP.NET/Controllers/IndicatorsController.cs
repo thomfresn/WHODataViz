@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 using WHODataViz.DataModel;
 
 namespace WHODataViz.ASP.NET.Controllers
@@ -17,10 +19,10 @@ namespace WHODataViz.ASP.NET.Controllers
         }
 
         // GET: Indicators
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string q)
         {
             IList<Indicator> indicators = await indicatorsService.GetAllIndicatorsAsync();
-            return View(indicators);
+            return View(indicators.Where(i => string.IsNullOrEmpty(q) || i.Description.Contains(q)));
         }
 
         public async Task<ActionResult> IndicatorData(string code)
