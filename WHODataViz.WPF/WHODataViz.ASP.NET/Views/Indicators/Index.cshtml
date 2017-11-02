@@ -18,14 +18,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(item.Description, "IndicatorData", new { code = item.Code})
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
-    </tr>
+    @Html.Partial("IndicatorItem", item)
 }
 
 </table>

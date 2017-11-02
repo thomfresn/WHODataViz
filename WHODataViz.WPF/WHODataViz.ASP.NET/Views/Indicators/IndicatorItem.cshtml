@@ -1,0 +1,11 @@
+﻿@model WHODataViz.DataModel.Indicator
+    
+    <tr>
+        <td>
+            @Html.ActionLink(Model.Description, "IndicatorData", new { code = Model.Code })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => Model.Code)
+        </td>
+    </tr>
+
