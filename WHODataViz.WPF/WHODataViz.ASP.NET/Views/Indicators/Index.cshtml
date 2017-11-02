@@ -6,7 +6,7 @@
 
 <h2>Indicators</h2>
 
-@Html.BeginForm("Index", "Indicators", FormMethod.Get){ 
+@using(Html.BeginForm("Index", "Indicators", FormMethod.Get)){ 
     @Html.TextBox("q")
     <input type="submit" value="Search"/>
 }
