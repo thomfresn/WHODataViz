@@ -211,6 +211,7 @@
     <Content Include="Views\Indicators\Index.cshtml" />
     <Content Include="Views\Indicators\IndicatorData.cshtml" />
     <Content Include="Views\Indicators\IndicatorItem.cshtml" />
+    <Content Include="Views\Indicators\IndicatorDataItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
