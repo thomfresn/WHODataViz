@@ -38,6 +38,7 @@ namespace WHODataViz.ASP.NET.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CreateIndicatorDataItemViewModel viewModel)
         {
             if(ModelState.IsValid)
