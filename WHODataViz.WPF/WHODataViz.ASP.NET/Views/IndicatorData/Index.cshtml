@@ -1,0 +1,44 @@
+﻿@model IndicatorDataItems
+
+@{
+    ViewBag.Title = @Model.Description;
+}
+
+<h2>@Model.Description</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.First().Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.First().Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.First().Sex)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.First().Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.First().Region)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Items.First().IsPublished)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        Html.RenderPartial("IndicatorDataItem", item);
+    }
+
+
+
+
+</table>
+
+
+@Html.ActionLink("Add new statitics", "Create", "IndicatorData", new { code = Model.IndicatorCode }, null) 
+

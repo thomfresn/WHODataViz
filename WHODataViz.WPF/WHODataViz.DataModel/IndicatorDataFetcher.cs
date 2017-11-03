@@ -7,11 +7,11 @@ namespace WHODataViz.DataModel
 {
     public class IndicatorDataFetcher : IIndicatorDataFetcher
     {
-        public async Task<IList<WHOStatistics>> GetWHOStatistics(string code)
+        public async Task<IndicatorDataItems> GetWHOStatistics(Indicator indicator)
         {
             List<WHOStatistics> statistics = new List<WHOStatistics>();
             GHOAthenaAPIAccessor athenaApiAccessor = new GHOAthenaAPIAccessor();
-            Facts facts = await athenaApiAccessor.GetFactsAsync(code);
+            Facts facts = await athenaApiAccessor.GetFactsAsync(indicator.Code);
             foreach (Fact fact in facts.fact)
             {
                 if (double.TryParse(fact.Value, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double value))
@@ -19,12 +19,12 @@ namespace WHODataViz.DataModel
                     statistics.Add(new WHOStatistics(value, fact.dim.YEAR, fact.dim.SEX, fact.dim.COUNTRY, fact.dim.REGION, fact.dim.PUBLISHSTATE == "Published"));
                 }
             }
-            return statistics;
+            return new IndicatorDataItems(indicator.Code, indicator.Description, statistics);
         }
     }
 
     public interface IIndicatorDataFetcher
     {
-        Task<IList<WHOStatistics>> GetWHOStatistics(string code);
+        Task<IndicatorDataItems> GetWHOStatistics(Indicator indicator);
     }
 }

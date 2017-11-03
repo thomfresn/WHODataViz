@@ -164,11 +164,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicatorDataController.cs" />
     <Compile Include="Controllers\IndicatorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ControllerFactory.cs" />
+    <Compile Include="Models\CreateIndicatorDataItemViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -209,13 +211,13 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Indicators\Index.cshtml" />
-    <Content Include="Views\Indicators\IndicatorData.cshtml" />
+    <Content Include="Views\IndicatorData\Index.cshtml" />
     <Content Include="Views\Indicators\IndicatorItem.cshtml" />
-    <Content Include="Views\Indicators\IndicatorDataItem.cshtml" />
+    <Content Include="Views\IndicatorData\IndicatorDataItem.cshtml" />
+    <Content Include="Views\IndicatorData\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

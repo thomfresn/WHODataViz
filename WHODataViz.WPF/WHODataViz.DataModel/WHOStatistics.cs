@@ -1,4 +1,7 @@
-﻿namespace WHODataViz.DataModel
+﻿using System.Collections.Generic;
+using WHODataViz.DataModel;
+
+namespace WHODataViz.DataModel
 {
     public class WHOStatistics
     {
@@ -19,4 +22,20 @@
         public string Region { get; private set; }
         public bool IsPublished { get; private set; }
     }
+}
+
+public class IndicatorDataItems
+{
+    public IndicatorDataItems(string indicatorCode,string description, IEnumerable<WHOStatistics> items)
+    {
+        Items = items;
+        IndicatorCode = indicatorCode;
+        Description = description;
+    }
+
+    public string Description { get; }
+
+    public string IndicatorCode { get; }
+
+    public IEnumerable<WHOStatistics> Items { get; }
 }

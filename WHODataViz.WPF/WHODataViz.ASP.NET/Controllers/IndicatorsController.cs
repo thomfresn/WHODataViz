@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using Microsoft.Ajax.Utilities;
 using WHODataViz.DataModel;
 
 namespace WHODataViz.ASP.NET.Controllers
@@ -25,11 +24,7 @@ namespace WHODataViz.ASP.NET.Controllers
             return View(indicators.Where(i => string.IsNullOrEmpty(q) || i.Description.Contains(q)));
         }
 
-        public async Task<ActionResult> IndicatorData(string code)
-        {
-            IList<WHOStatistics> whoStatistics = await indicatorDataFetcher.GetWHOStatistics(code);
-            return View(whoStatistics);
-        }
+        
 
 
     }

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WHODataViz.DataModel.Tests
@@ -12,8 +11,8 @@ namespace WHODataViz.DataModel.Tests
         {
             string code = "MDG_0000000027";
             IndicatorDataFetcher indicatorDataFetcher = new IndicatorDataFetcher();
-            IList<WHOStatistics> statistics = indicatorDataFetcher.GetWHOStatistics(code).Result;
-            Assert.IsTrue(statistics.Any(s => s.Country == "Solomon Islands"));
+            IndicatorDataItems indicatorDataItems = indicatorDataFetcher.GetWHOStatistics(new Indicator(code, string.Empty)).Result;
+            Assert.IsTrue(indicatorDataItems.Items.Any(s => s.Country == "Solomon Islands"));
         }
     }
 }
