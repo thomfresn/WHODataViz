@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -18,6 +19,8 @@ namespace WHODataViz.ASP.NET.Controllers
         }
 
         // GET: Indicators
+        [AsyncTimeout(4000)]
+        [HandleError(ExceptionType = typeof(TimeoutException), View = "Timeout")]
         public async Task<ActionResult> Index(string q)
         {
             IList<Indicator> indicators = await indicatorsService.GetAllIndicatorsAsync();

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using WHODataViz.ASP.NET.Models;
@@ -19,7 +21,9 @@ namespace WHODataViz.ASP.NET.Controllers
             this.indicatorDataFetcher = indicatorDataFetcher;
         }
 
-        public async Task<ActionResult> Index(string code)
+        [AsyncTimeout(4000)]
+        [HandleError(ExceptionType = typeof(TimeoutException), View = "Timeout")]
+        public async Task<ActionResult> Index(string code, CancellationToken ctk)
         {
             IList<Indicator> indicators = await indicatorsService.GetAllIndicatorsAsync();
             Indicator indicator = indicators.FirstOrDefault(x => x.Code == code);
